@@ -18,9 +18,11 @@ router.get("/players", getPlayers);
 
 
 // DELETE /api/players/:id
-router.delete("/players/:id", deletePlayer); // ✅ added
+router.delete("/players/:id", deletePlayer); 
 
+//edit player details
 router.put("/players/:id", updatePlayer);
+
 
 router.get("/players/:id", getPlayerById);
 
