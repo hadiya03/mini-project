@@ -131,6 +131,51 @@ exports.updateAssessment = async (req, res) => {
   }
 };
 
+
+//update player profile
+
+exports.updatePlayer = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const {
+      name,
+      email,
+      position,
+      age,
+      height,
+      weight,
+      preferred_foot,
+      current_team,
+    } = req.body;
+
+    const result = await pool.query(
+      `UPDATE players
+       SET name=$1, email=$2, position=$3, age=$4,
+           height=$5, weight=$6,
+           preferred_foot=$7, current_team=$8
+       WHERE id=$9
+       RETURNING *`,
+      [
+        name,
+        email,
+        position,
+        age,
+        height,
+        weight,
+        preferred_foot,
+        current_team,
+        id,
+      ]
+    );
+
+    res.status(200).json(result.rows[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Failed to update player" });
+  }
+};
+
+
 /* ================= DELETE PLAYER ================= */
 exports.deletePlayer = async (req, res) => {
   try {

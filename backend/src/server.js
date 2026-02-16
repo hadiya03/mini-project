@@ -11,12 +11,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Auth routes
+
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ limit: "10mb", extended: true }));
+
 app.use("/api/auth", authRoutes);
 app.use("/api/player", playerRoutes); // existing player routes
 app.use("/api/assessments", playerAssessmentsRouter); // ✅ assessments routes
 app.use("/api/training-sessions", trainingRoutes); // ✅ corrected route prefix for consistency
 app.use("/api/dashboard", dashBoard);
+
 
 app.listen(5000, () => {
   console.log("Server running on http://localhost:5000");

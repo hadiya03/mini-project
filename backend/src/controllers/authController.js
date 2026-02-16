@@ -125,17 +125,20 @@ const login = async (req, res) => {
     if (!match) {
       return res.json({ success: false, message: "Incorrect password" });
     }
-
-    res.json({
+    // ✅ Make sure role is returned
+    return res.json({
       success: true,
       message: "Login successful",
+      token: "logged_in",
       user: {
         id: user.id,
         name: user.name,
         email: user.email,
-        role: user.role,
+        role: user.role,  // VERY IMPORTANT
       },
     });
+
+    
 
   } catch (err) {
     console.log("DB Error:", err);

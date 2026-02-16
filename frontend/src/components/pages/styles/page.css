@@ -1,0 +1,173 @@
+/* General cards */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(78,115,223,0.15), transparent);
+  top: -100%;
+  left: -100%;
+  transform: rotate(45deg);
+  transition: all 0.5s;
+}
+
+.card:hover::before {
+  top: 0;
+  left: 0;
+}
+
+/* Dashboard Home */
+.dashboard-home h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #1f2a38;
+  animation: fadeInText 1s ease;
+}
+
+.dashboard-home p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.dashboard-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Keyframe */
+@keyframes fadeInText {
+  from {opacity: 0; transform: translateY(-5px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* Create Player Form */
+.create-player-container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  animation: fadeIn 1s ease;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  color: #4e73df;
+  font-weight: 600;
+  border-bottom: 2px solid #4e73df;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  width: 50px;
+  height: 3px;
+  background: #2e3a59;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  border-radius: 2px;
+  animation: growLine 0.5s ease;
+}
+
+/* Form Grid */
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.form-row label {
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+  border-color: #4e73df;
+  box-shadow: 0 0 8px rgba(78,115,223,0.4);
+  outline: none;
+  transform: scale(1.02);
+}
+
+/* Buttons */
+button {
+  padding: 14px 28px;
+  background: linear-gradient(90deg, #4e73df, #2e3a59);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s, box-shadow 0.3s;
+  animation: pulse 1.5s infinite alternate;
+}
+
+button:hover {
+  animation: pulseHover 0.7s infinite alternate;
+  transform: scale(1.08);
+  box-shadow: 0 0 15px rgba(78,115,223,0.6);
+}
+
+/* Checkbox Flex */
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Animations */
+@keyframes pulse {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.02);}
+  100% {transform: scale(1);}
+}
+
+@keyframes pulseHover {
+  0% {transform: scale(1.05); box-shadow: 0 0 8px rgba(78,115,223,0.4);}
+  50% {transform: scale(1.1); box-shadow: 0 0 15px rgba(78,115,223,0.6);}
+  100% {transform: scale(1.05);}
+}
+
+@keyframes growLine {
+  from {width: 0;}
+  to {width: 50px;}
+}
+
+
