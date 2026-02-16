@@ -1,0 +1,95 @@
+/* =============================
+   PAGE LAYOUT
+============================= */
+
+.analytics-container {
+  padding: 32px;
+  background: #f6f8fb;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* =============================
+   HEADER
+============================= */
+
+.analytics-container h1 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #222;
+}
+
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+/* =============================
+   GRID LAYOUT
+============================= */
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* full width chart */
+.full-width {
+  grid-column: span 2;
+}
+
+/* =============================
+   CHART CARDS
+============================= */
+
+.chart-card {
+  background: white;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s ease;
+  height: 360px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* hover effect */
+.chart-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* =============================
+   CARD TITLES
+============================= */
+
+.chart-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #374151;
+  text-align: center;
+}
+
+/* =============================
+   RESPONSIVE
+============================= */
+
+@media (max-width: 900px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width {
+    grid-column: span 1;
+  }
+
+  .chart-card {
+    height: 320px;
+  }
+}
