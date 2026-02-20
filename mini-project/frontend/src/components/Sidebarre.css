@@ -1,0 +1,37 @@
+/* Sidebar container */
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: #1f2937;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* Title */
+.sidebar-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #10b981;
+  margin-bottom: 30px;
+}
+
+/* Links */
+.sidebar-link {
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  transition: 0.2s;
+}
+
+.sidebar-link:hover {
+  background: #374151;
+}
+
+.sidebar-active {
+  background: #111827;
+  color: #10b981;
+}
