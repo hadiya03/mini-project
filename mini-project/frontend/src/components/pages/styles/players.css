@@ -1,0 +1,36 @@
+.players-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.player-card {
+  cursor: pointer;
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.player-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.player-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.player-info {
+  margin-top: 10px;
+}
+
+.create-player-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+}

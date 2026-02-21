@@ -1,0 +1,164 @@
+/* Page Wrapper */
+.reports-container {
+  padding: 24px;
+  background: #f9fafb;
+  min-height: 100vh;
+}
+
+/* Headings */
+.reports-container h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.reports-container .subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 24px;
+}
+
+/* Cards */
+.card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Filter Section */
+.filters {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  align-items: end;
+}
+
+.filters label {
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.filters select,
+.filters input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+/* Buttons */
+.primary-btn {
+  background: #4f46e5;
+  color: #ffffff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background: #4338ca;
+}
+
+.secondary-btn {
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  padding: 9px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Report Preview Cards */
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.preview-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.preview-card p {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+.preview-card .chart-placeholder {
+  height: 140px;
+  background: #f3f4f6;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.preview-card button {
+  width: 100%;
+}
+
+/* Trend Analysis */
+.trend-card {
+  padding: 24px;
+}
+
+.trend-card h2 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.trend-chart {
+  height: 260px;
+}
+
+/* Automation Section */
+.automation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.automation-grid label {
+  font-size: 13px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.automation-grid input,
+.automation-grid select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+/* Schedule Button */
+.schedule-btn {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Footer spacing */
+.footer-space {
+  height: 40px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .filters {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .automation-grid {
+    grid-template-columns: 1fr;
+  }
+}
