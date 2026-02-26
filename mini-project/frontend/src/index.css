@@ -1,0 +1,8 @@
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* important */
+  width: 100%;
+  font-family: Arial, sans-serif;
+  background: #9be8e8; /* fallback background */
+}
