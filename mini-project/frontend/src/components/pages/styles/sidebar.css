@@ -67,10 +67,7 @@
   border-right: 1px solid #e5e7eb;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-
-
-  
+  justify-content: flex-start;
 }
 
 .sidebar-logo {
@@ -129,6 +126,7 @@
   flex: 1;
   padding: 20px;
 }
+
 
 
 
