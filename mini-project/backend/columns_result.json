@@ -1,0 +1,50 @@
+[
+  {
+    "column_name": "id",
+    "data_type": "integer"
+  },
+  {
+    "column_name": "player_id",
+    "data_type": "character varying"
+  },
+  {
+    "column_name": "email",
+    "data_type": "character varying"
+  },
+  {
+    "column_name": "name",
+    "data_type": "character varying"
+  },
+  {
+    "column_name": "position",
+    "data_type": "character varying"
+  },
+  {
+    "column_name": "age",
+    "data_type": "integer"
+  },
+  {
+    "column_name": "weight",
+    "data_type": "double precision"
+  },
+  {
+    "column_name": "height",
+    "data_type": "double precision"
+  },
+  {
+    "column_name": "preferred_foot",
+    "data_type": "character varying"
+  },
+  {
+    "column_name": "current_team",
+    "data_type": "character varying"
+  },
+  {
+    "column_name": "profile_image",
+    "data_type": "text"
+  },
+  {
+    "column_name": "created_at",
+    "data_type": "timestamp without time zone"
+  }
+]
