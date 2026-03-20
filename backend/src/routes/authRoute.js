@@ -3,7 +3,7 @@ const router = express.Router();
 const {
   register,
   verifyOtp,
-  login,
+  login,logout,
   forgotPassword,
   resetPassword,
 } = require("../controllers/authController.js");
@@ -22,5 +22,7 @@ router.post("/forgot-password", forgotPassword);
 
 // Reset Password
 router.post("/reset-password", resetPassword);
+router.post("/logout", logout);
+
 
 module.exports = router;

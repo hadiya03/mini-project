@@ -93,3 +93,50 @@ exports.deleteTraining = async (req, res) => {
     res.status(500).send("Server Error");
   }
 };
+
+
+
+
+// GET LATEST TRAINING SESSION
+exports.getLatestTraining = async (req, res) => {
+  try {
+    const result = await pool.query(
+      `SELECT * FROM training_sessions
+       ORDER BY session_date DESC
+       LIMIT 1`
+    );
+
+    if (result.rows.length === 0) {
+      return res.status(200).json(null);
+    }
+
+    res.json(result.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+};
+
+
+
+// GET AVERAGE TRAINING LOAD OF A PLAYER
+exports.getAverageTrainingLoad = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const result = await pool.query(
+      `SELECT AVG(rpe * duration_minutes) AS avg_load
+       FROM training_sessions
+       WHERE player_id = $1`,
+      [id]
+    );
+
+    res.json({
+      averageLoad: Number(result.rows[0].avg_load) || 0,
+    });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+};
+

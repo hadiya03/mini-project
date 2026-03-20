@@ -1,13 +1,17 @@
 const db = require("../db/db.js");
 const nodemailer = require("nodemailer");
 const bcrypt = require("bcrypt");
+const { loginLog, logoutLog } = require("./logController");
 
 // ✅ FIXED Gmail transporter
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,       // use TLS
+  family: 4,           // ⭐ FORCE IPv4 (VERY IMPORTANT)
   auth: {
     user: "miniproject783@gmail.com",
-    pass: "wwgaucxltubvfwbw", // Gmail App Password
+    pass: "wwgaucxltubvfwbw",
   },
 });
 
@@ -126,23 +130,41 @@ const login = async (req, res) => {
       return res.json({ success: false, message: "Incorrect password" });
     }
 
-    res.json({
+    // Record login in user_logs
+    await loginLog(user.id);
+
+    // ✅ Make sure role is returned
+    return res.json({
       success: true,
       message: "Login successful",
+      token: "logged_in",
       user: {
         id: user.id,
         name: user.name,
         email: user.email,
-        role: user.role,
+        role: user.role,  // VERY IMPORTANT
       },
     });
+
+    
 
   } catch (err) {
     console.log("DB Error:", err);
     return res.status(500).json({ success: false, message: "Server error" });
   }
 };
+const logout = async (req, res) => {
+  const { userId } = req.body;
 
+  try {
+    await logoutLog(userId);
+
+    res.json({ success: true, message: "Logged out successfully" });
+  } catch (err) {
+    console.log("Logout error:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
 // ---------------------------
 // FORGOT PASSWORD
 // ---------------------------
@@ -225,6 +247,7 @@ module.exports = {
   register,
   verifyOtp,
   login,
+  logout,
   forgotPassword,
   resetPassword,
 };

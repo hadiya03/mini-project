@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "name": "Arjun Nair",
+    "position": "Forward",
+    "readiness_score": "85"
+  },
+  {
+    "id": 2,
+    "name": "Rahul Das",
+    "position": "Midfielder",
+    "readiness_score": "82"
+  },
+  {
+    "id": 3,
+    "name": "Kiran Kumar",
+    "position": "Defender",
+    "readiness_score": "88"
+  },
+  {
+    "id": 4,
+    "name": "Vishnu Raj",
+    "position": "Goalkeeper",
+    "readiness_score": "84"
+  },
+  {
+    "id": 5,
+    "name": "Manu Varghese",
+    "position": "Forward",
+    "readiness_score": "80"
+  },
+  {
+    "id": 6,
+    "name": "Akhil Babu",
+    "position": "Midfielder",
+    "readiness_score": "84"
+  },
+  {
+    "id": 7,
+    "name": "Nikhil Jose",
+    "position": "Defender",
+    "readiness_score": "89"
+  },
+  {
+    "id": 8,
+    "name": "Deepak Raj",
+    "position": "Midfielder",
+    "readiness_score": "81"
+  },
+  {
+    "id": 9,
+    "name": "Sandeep Nair",
+    "position": "Forward",
+    "readiness_score": "83"
+  },
+  {
+    "id": 10,
+    "name": "Rohit Menon",
+    "position": "Defender",
+    "readiness_score": "84"
+  },
+  {
+    "id": 11,
+    "name": "Ajay Kumar",
+    "position": "Midfielder",
+    "readiness_score": "82"
+  },
+  {
+    "id": 12,
+    "name": "Sahil Thomas",
+    "position": "Forward",
+    "readiness_score": "90"
+  },
+  {
+    "id": 13,
+    "name": "Anil Varma",
+    "position": "Defender",
+    "readiness_score": "84"
+  },
+  {
+    "id": 14,
+    "name": "Vivek Babu",
+    "position": "Midfielder",
+    "readiness_score": "79"
+  },
+  {
+    "id": 15,
+    "name": "Ashwin Raj",
+    "position": "Forward",
+    "readiness_score": "85"
+  },
+  {
+    "id": 16,
+    "name": "Pranav Das",
+    "position": "Defender",
+    "readiness_score": "90"
+  },
+  {
+    "id": 17,
+    "name": "Hari Krishnan",
+    "position": "Midfielder",
+    "readiness_score": "82"
+  },
+  {
+    "id": 18,
+    "name": "Naveen Paul",
+    "position": "Forward",
+    "readiness_score": "84"
+  },
+  {
+    "id": 19,
+    "name": "Jithin Mathew",
+    "position": "Defender",
+    "readiness_score": "84"
+  },
+  {
+    "id": 20,
+    "name": "Kevin George",
+    "position": "Midfielder",
+    "readiness_score": "82"
+  },
+  {
+    "id": 21,
+    "name": "Aravind Nair",
+    "position": "Forward",
+    "readiness_score": "90"
+  },
+  {
+    "id": 22,
+    "name": "Joel Thomas",
+    "position": "Defender",
+    "readiness_score": "84"
+  },
+  {
+    "id": 23,
+    "name": "Tony Varghese",
+    "position": "Midfielder",
+    "readiness_score": "78"
+  },
+  {
+    "id": 24,
+    "name": "Abin Joseph",
+    "position": "Forward",
+    "readiness_score": "85"
+  },
+  {
+    "id": 25,
+    "name": "Nithin Raj",
+    "position": "Goalkeeper",
+    "readiness_score": "90"
+  }
+]
