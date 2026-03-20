@@ -1,0 +1,524 @@
+/*import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import "./playerProfile.css";
+
+const PlayerProfile = () => {
+  const navigate = useNavigate();
+  const { id } = useParams();
+
+  const [player, setPlayer] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [editMode, setEditMode] = useState(false);
+  const [formData, setFormData] = useState({});
+
+  useEffect(() => {
+    const fetchPlayer = async () => {
+      try {
+        const res = await fetch(
+          `http://localhost:5000/api/trainer/trainer-playerprofile/${id}`
+        );
+
+        if (!res.ok) throw new Error("Failed to fetch player");
+
+        const data = await res.json();
+        setPlayer(data);
+        setFormData(data); // preload form
+      } catch (err) {
+        console.error(err);
+        setPlayer(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPlayer();
+  }, [id]);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSave = async () => {
+    try {
+      const res = await fetch(
+        `http://localhost:5000/api/trainer/trainer-players/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (!res.ok) throw new Error("Failed to update player");
+
+      const updatedPlayer = await res.json();
+      setPlayer(updatedPlayer);
+      setEditMode(false);
+      toast.success("Profile updated successfully!");
+    } catch (err) {
+      console.error(err);
+      toast.error("Error updating profile");
+    }
+  };
+
+  if (loading) return <p>Loading player...</p>;
+  if (!player) return <p>Player not found</p>;
+
+  return (
+    <div className="player-profile-container">
+      <button
+        className="back-btn"
+        onClick={() => navigate("/trainer-players")}
+        style={{ marginBottom: "20px" }}
+      >
+        ← Back to Players
+      </button>
+
+      <div className="profile-sections">
+        <div className="profile-header">
+          <img
+            src={
+              editMode
+                ? formData.profile_image || "https://via.placeholder.com/120"
+                : player.profile_image || "https://via.placeholder.com/120"
+            }
+            alt={player.name}
+            className="profile-image"
+          />
+          <div>
+            {editMode ? (
+              <>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name || ""}
+                  onChange={handleChange}
+                />
+                <input
+                  type="text"
+                  name="position"
+                  value={formData.position || ""}
+                  onChange={handleChange}
+                />
+                <input
+                  type="number"
+                  name="age"
+                  value={formData.age || ""}
+                  onChange={handleChange}
+                />
+              </>
+            ) : (
+              <>
+                <h2>{player.name}</h2>
+                <p>
+                  {player.position} • {player.age} years old
+                </p>
+              </>
+            )}
+          </div>
+        </div>
+
+        <div className="profile-card">
+          <h3>Personal & Football Details</h3>
+
+          {editMode ? (
+            <>
+              <p>
+                <strong>Email:</strong>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email || ""}
+                  onChange={handleChange}
+                />
+              </p>
+              <p>
+                <strong>Height:</strong>
+                <input
+                  type="number"
+                  name="height"
+                  value={formData.height || ""}
+                  onChange={handleChange}
+                />{" "}
+                cm
+              </p>
+              <p>
+                <strong>Weight:</strong>
+                <input
+                  type="number"
+                  name="weight"
+                  value={formData.weight || ""}
+                  onChange={handleChange}
+                />{" "}
+                kg
+              </p>
+              <p>
+                <strong>Preferred Foot:</strong>
+                <input
+                  type="text"
+                  name="preferred_foot"
+                  value={formData.preferred_foot || ""}
+                  onChange={handleChange}
+                />
+              </p>
+              <p>
+                <strong>Current Team:</strong>
+                <input
+                  type="text"
+                  name="current_team"
+                  value={formData.current_team || ""}
+                  onChange={handleChange}
+                />
+              </p>
+              <p>
+                <strong>Profile Image URL:</strong>
+                <input
+                  type="text"
+                  name="profile_image"
+                  value={formData.profile_image || ""}
+                  onChange={handleChange}
+                />
+              </p>
+            </>
+          ) : (
+            <>
+              <p><strong>Email:</strong> {player.email || "N/A"}</p>
+              <p><strong>Height:</strong> {player.height || "N/A"} cm</p>
+              <p><strong>Weight:</strong> {player.weight || "N/A"} kg</p>
+              <p><strong>Preferred Foot:</strong> {player.preferred_foot || "N/A"}</p>
+              <p><strong>Current Team:</strong> {player.current_team || "N/A"}</p>
+            </>
+          )}
+        </div>
+
+        <div style={{ marginTop: "24px" }}>
+          {!editMode ? (
+            <button
+              className="readiness-btn"
+              onClick={() =>
+                navigate(`/trainer-playerprofile/${player.id}/readiness`)
+              }
+            >
+              Player Readiness & Fatigue
+            </button>
+          ) : null}
+        </div>
+
+        <div style={{ marginTop: "20px" }}>
+          {editMode ? (
+            <>
+              <button
+                className="save-btn"
+                onClick={handleSave}
+                style={{ marginRight: "10px" }}
+              >
+                Save
+              </button>
+              <button
+                className="cancel-btn"
+                onClick={() => {
+                  setEditMode(false);
+                  setFormData(player);
+                }}
+              >
+                Cancel
+              </button>
+            </>
+          ) : (
+            <button
+              className="edit-btn"
+              onClick={() => setEditMode(true)}
+            >
+              Edit Profile
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default PlayerProfile;*/
+
+
+
+
+
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "sonner";
+import "./playerProfile.css";
+
+const PlayerProfile = () => {
+  const navigate = useNavigate();
+  const { id } = useParams();
+
+  const [player, setPlayer] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [editMode, setEditMode] = useState(false);
+  const [formData, setFormData] = useState({});
+
+  useEffect(() => {
+    const fetchPlayer = async () => {
+      try {
+        const res = await fetch(
+          `http://localhost:5000/api/trainer/trainer-playerprofile/${id}`
+        );
+
+        if (!res.ok) throw new Error("Failed to fetch player");
+
+        const data = await res.json();
+        setPlayer(data);
+        setFormData(data);
+      } catch (err) {
+        console.error(err);
+        setPlayer(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPlayer();
+  }, [id]);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSave = async () => {
+    try {
+      const res = await fetch(
+        `http://localhost:5000/api/trainer/trainer-players/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (!res.ok) throw new Error("Failed to update player");
+
+      const updatedPlayer = await res.json();
+      setPlayer(updatedPlayer);
+      setEditMode(false);
+      toast.success("Profile updated successfully!");
+    } catch (err) {
+      console.error(err);
+      toast.error("Error updating profile");
+    }
+  };
+
+  if (loading) return <p>Loading player...</p>;
+  if (!player) return <p>Player not found</p>;
+
+  return (
+    <div className="player-profile-container">
+      {/* Back Button */}
+      <button
+        className="back-btn"
+        onClick={() => navigate("/trainer-players")}
+      >
+        ← Back to Players
+      </button>
+
+      <div className="profile-sections">
+
+        {/* Header */}
+        <div className="profile-header">
+          <img
+            src={
+              editMode
+                ? formData.profile_image || "https://via.placeholder.com/120"
+                : player.profile_image || "https://via.placeholder.com/120"
+            }
+            alt={player.name}
+            className="profile-image"
+          />
+
+          <div className="header-content">
+            {editMode ? (
+              <>
+                <div className="form-group">
+                  <label>Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name || ""}
+                    onChange={handleChange}
+                  />
+                </div>
+
+                <div className="form-row">
+                  <div className="form-group">
+                    <label>Position</label>
+                    <input
+                      type="text"
+                      name="position"
+                      value={formData.position || ""}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label>Age</label>
+                    <input
+                      type="number"
+                      name="age"
+                      value={formData.age || ""}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <h2>{player.name}</h2>
+                <p>
+                  {player.position} • {player.age} years old
+                </p>
+              </>
+            )}
+          </div>
+        </div>
+
+        {/* Details Card */}
+        <div className="profile-card">
+          <h3>Personal & Football Details</h3>
+
+          {editMode ? (
+            <>
+              <div className="form-group">
+                <label>Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email || ""}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="form-row">
+                <div className="form-group">
+                  <label>Height (cm)</label>
+                  <input
+                    type="number"
+                    name="height"
+                    value={formData.height || ""}
+                    onChange={handleChange}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label>Weight (kg)</label>
+                  <input
+                    type="number"
+                    name="weight"
+                    value={formData.weight || ""}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label>Preferred Foot</label>
+                <input
+                  type="text"
+                  name="preferred_foot"
+                  value={formData.preferred_foot || ""}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Current Team</label>
+                <input
+                  type="text"
+                  name="current_team"
+                  value={formData.current_team || ""}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Profile Image URL</label>
+                <input
+                  type="text"
+                  name="profile_image"
+                  value={formData.profile_image || ""}
+                  onChange={handleChange}
+                />
+              </div>
+            </>
+          ) : (
+            <>
+              <p><strong>Email:</strong> {player.email || "N/A"}</p>
+              <p><strong>Height:</strong> {player.height || "N/A"} cm</p>
+              <p><strong>Weight:</strong> {player.weight || "N/A"} kg</p>
+              <p><strong>Preferred Foot:</strong> {player.preferred_foot || "N/A"}</p>
+              <p><strong>Current Team:</strong> {player.current_team || "N/A"}</p>
+            </>
+          )}
+        </div>
+
+        {/* Readiness Button */}
+        {!editMode && (
+          <div className="button-wrapper">
+            <button
+              className="readiness-btn"
+              onClick={() =>
+                navigate(`/trainer-playerprofile/${player.id}/readiness`)
+              }
+            >
+              Player Readiness & Fatigue
+            </button>
+          </div>
+        )}
+
+        {/* Action Buttons */}
+        <div className="button-wrapper">
+          {editMode ? (
+            <>
+              <button
+                className="save-btn"
+                onClick={handleSave}
+              >
+                Save
+              </button>
+
+              <button
+                className="cancel-btn"
+                onClick={() => {
+                  setEditMode(false);
+                  setFormData(player);
+                }}
+              >
+                Cancel
+              </button>
+            </>
+          ) : (
+            <button
+              className="edit-btn"
+              onClick={() => setEditMode(true)}
+            >
+              Edit Profile
+            </button>
+          )}
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
+export default PlayerProfile;
+

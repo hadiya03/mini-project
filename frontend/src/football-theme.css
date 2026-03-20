@@ -1,0 +1,233 @@
+/* ========================================
+   GLOBAL FOOTBALL THEME STYLES
+   ======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #0a3622 0%, #1a5c3c 50%, #2d7f4f 100%),
+              url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  font-family: 'Segoe UI', 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  position: relative;
+}
+
+/* Football field background pattern */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255,255,255,0.05) 0%, transparent 50%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.02) 0px,
+      rgba(255,255,255,0.02) 2px,
+      transparent 2px,
+      transparent 4px
+    );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ========================================
+   FOOTBALL ICON ANIMATIONS
+   ======================================== */
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ========================================
+   COMMON FORM STYLES
+   ======================================== */
+
+.football-form {
+  background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(250,251,252,0.98) 100%);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  border: 2px solid rgba(255,255,255,0.2);
+  position: relative;
+  overflow: hidden;
+  max-width: 450px;
+  width: 100%;
+}
+
+.football-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg,
+    rgba(31,95,55,0) 0%,
+    rgba(31,95,55,0.3) 20%,
+    rgba(31,95,55,0.3) 80%,
+    rgba(31,95,55,0) 100%);
+  pointer-events: none;
+}
+
+.football-form h2 {
+  text-align: center;
+  color: #0a3622;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.football-form h2::before {
+  content: '⚽';
+  font-size: 32px;
+  animation: bounce 2s infinite;
+}
+
+.football-form input {
+  width: 100%;
+  padding: 15px 18px;
+  border-radius: 10px;
+  border: 2px solid #e0e7ff;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+  font-weight: 500;
+  color: #1a2332;
+  margin-bottom: 20px;
+}
+
+.football-form input::placeholder {
+  color: #9ca3af;
+}
+
+.football-form input:hover {
+  border-color: #1f5f37;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(31, 95, 55, 0.08);
+}
+
+.football-form input:focus {
+  border-color: #1f5f37;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(31, 95, 55, 0.12);
+  transform: translateY(-2px);
+}
+
+.football-form button {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  outline: none;
+  background: linear-gradient(135deg, #1f5f37 0%, #167934 100%);
+  color: white;
+  margin-top: 10px;
+  box-shadow: 0 8px 20px rgba(31, 95, 55, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.football-form button:hover {
+  background: linear-gradient(135deg, #167934 0%, #0f4620 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(31, 95, 55, 0.4);
+}
+
+.football-form button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(31, 95, 55, 0.3);
+}
+
+.football-form a {
+  color: #1f5f37;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.football-form a:hover {
+  text-decoration: underline;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+  .football-form {
+    padding: 30px 25px;
+    max-width: 380px;
+  }
+
+  .football-form h2 {
+    font-size: 24px;
+  }
+
+  .football-form input {
+    padding: 12px 15px;
+    font-size: 15px;
+  }
+
+  .football-form button {
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .football-form {
+    padding: 20px 18px;
+    max-width: 320px;
+  }
+
+  .football-form h2 {
+    font-size: 20px;
+    gap: 8px;
+  }
+
+  .football-form h2::before {
+    font-size: 24px;
+  }
+
+  .football-form input {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .football-form button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}

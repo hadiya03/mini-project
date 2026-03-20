@@ -1,0 +1,400 @@
+/* ========================================
+   FOOTBALL THEMED LAYOUT
+   ======================================== */
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0a3622 0%, #1a5c3c 50%, #2d7f4f 100%),
+              url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80') no-repeat center center fixed;
+  background-size: cover;
+  transition: background 0.3s;
+  position: relative;
+}
+
+.app-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.1);
+  pointer-events: none;
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 1;
+  border-radius: 15px;
+  margin: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.page-header {
+  background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(250,251,252,0.9) 100%);
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  border-left: 5px solid #1f5f37;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.page-header h1 {
+  color: #0a3622;
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.page-header h1::before {
+  content: '⚽';
+  font-size: 32px;
+  animation: bounce 2s infinite;
+}
+
+.page-content {
+  background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(250,251,252,0.95) 100%);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  border: 1px solid rgba(31, 95, 55, 0.1);
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+
+.header {
+  background: #4e73df;
+  color: #fff;
+  padding: 20px 30px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  animation: fadeIn 1s ease;
+}
+
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content > main {
+  padding: 30px;
+  flex: 1;
+}
+
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes slideIn {
+  from {width: 0;}
+  to {width: 5px;}
+}*/
+
+
+
+
+
+/* ===== APP LAYOUT ===== */
+
+/*.app-container {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f6fb;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+.sidebar {
+  width: 230px;
+  background: #1f2937;
+  color: #fff;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: white;
+  padding: 12px 15px;
+  border-radius: 6px;
+  transition: 0.25s;
+}
+
+.sidebar a:hover {
+  background: #374151;
+}
+
+.sidebar a.active {
+  background: #2563eb;
+}
+
+.header {
+  background: #2563eb;
+  color: white;
+  padding: 18px 25px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content main {
+  padding: 30px;
+}*/
+
+
+
+/* ===== APP LAYOUT ===== */
+
+/*.app-container {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f6fb;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+.sidebar {
+  width: 230px;
+  background: #1f2937;
+  color: #fff;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: white;
+  padding: 12px 15px;
+  border-radius: 6px;
+  transition: 0.25s;
+}
+
+.sidebar a:hover {
+  background: #374151;
+}
+
+.sidebar a.active {
+  background: #2563eb;
+}
+
+
+
+.header {
+  background: #2563eb;
+  color: white;
+  padding: 18px 25px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content main {
+  padding: 30px;
+}*/
+
+
+
+
+
+
+/*start*/
+
+/* ===== APP LAYOUT ===== */
+
+/*.app-container {
+  display: flex;
+  min-height: 100vh;   
+  background: #f4f6fb;
+}
+
+
+
+.sidebar {
+  width: 240px;
+  height: 100vh;      
+  background: #1f2937;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+}
+
+
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content main {
+  padding: 30px;
+  flex: 1;
+}*/
+
+
+
+
+/* ===== APP LAYOUT ===== */
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f6fb;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== SIDEBAR ===== */
+
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: linear-gradient(180deg, #1e293b, #111827);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  box-shadow: 4px 0 18px rgba(0,0,0,0.1);
+}
+
+/* SIDEBAR HEADER / LOGO */
+
+.sidebar-logo {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 24px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* SIDEBAR NAVIGATION */
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 6px;
+}
+
+/* SIDEBAR LINKS */
+
+.sidebar a {
+  text-decoration: none;
+  color: #cbd5e1;
+  padding: 11px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.25s ease;
+}
+
+/* HOVER EFFECT */
+
+.sidebar a:hover {
+  background: #2563eb;
+  color: white;
+  transform: translateX(4px);
+}
+
+/* ACTIVE MENU ITEM */
+
+.sidebar a.active {
+  background: #2563eb;
+  color: white;
+  font-weight: 500;
+}
+
+/* ===== MAIN CONTENT ===== */
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER AREA */
+
+.main-header {
+  background: white;
+  padding: 16px 30px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* PAGE CONTENT */
+
+.main-content main {
+  padding: 30px;
+  flex: 1;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+
+  .sidebar {
+    width: 200px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .app-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+}
