@@ -203,12 +203,6 @@ const CreatePlayer = () => {
     height: "",
     preferredFoot: "",
     currentTeam: "",
-    jerseyNumber: "",
-    careerGoals: "",
-    careerAssists: "",
-    performanceRating: "",
-    internationalCaps: "",
-    debutDate: "",
   });
 
   const handleChange = (e) => {
@@ -246,12 +240,7 @@ const handleSubmit = async (e) => {
     preferred_foot: player.preferredFoot || null,
     current_team: player.currentTeam || null,
     profile_image: player.profileImage || null,
-    jersey_number: player.jerseyNumber || null,
-    career_goals: player.careerGoals || null,
-    career_assists: player.careerAssists || null,
-    performance_rating: player.performanceRating || null,
-    international_caps: player.internationalCaps || null,
-    debut_date: player.debutDate || null,
+    
   };
 
   try {
@@ -286,7 +275,7 @@ const handleSubmit = async (e) => {
       <div className="form-row">
         <div>
           <label>Player ID</label>
-          <input
+          <input data-testid="playerId-input"
             name="playerId"
             value={player.playerId}
             onChange={handleChange}
@@ -296,7 +285,7 @@ const handleSubmit = async (e) => {
 
         <div>
           <label>Email</label>
-          <input
+          <input data-testid="email-input"
             name="email"
             type="email"
             value={player.email}
@@ -307,17 +296,18 @@ const handleSubmit = async (e) => {
 
         <div>
           <label>Profile Image</label>
-          <input type="file" accept="image/*" onChange={handleImageChange} />
+          <input data-testid="profileImage-input" type="file" accept="image/*" onChange={handleImageChange} />
         </div>
 
         <div>
           <label>Name</label>
-          <input name="name" value={player.name} onChange={handleChange} />
+          <input data-testid="name-input" name="name" value={player.name} onChange={handleChange} />
         </div>
 
         <div>
           <label>Position</label>
           <input
+            data-testid="position-input"
             name="position"
             value={player.position}
             onChange={handleChange}
@@ -327,6 +317,7 @@ const handleSubmit = async (e) => {
         <div>
           <label>Age</label>
           <input
+            data-testid="age-input"
             name="age"
             type="number"
             value={player.age}
@@ -340,7 +331,7 @@ const handleSubmit = async (e) => {
       <div className="form-row">
         <div>
           <label>Weight (kg)</label>
-          <input
+          <input data-testid="weight-input"
             name="weight"
             type="number"
             value={player.weight}
@@ -350,7 +341,7 @@ const handleSubmit = async (e) => {
 
         <div>
           <label>Height (cm)</label>
-          <input
+          <input data-testid="height-input"
             name="height"
             type="number"
             value={player.height}
@@ -360,7 +351,7 @@ const handleSubmit = async (e) => {
 
         <div>
           <label>Preferred Foot</label>
-          <input
+          <input data-testid="preferredFoot-input"
             name="preferredFoot"
             value={player.preferredFoot}
             onChange={handleChange}
@@ -369,7 +360,7 @@ const handleSubmit = async (e) => {
 
         <div>
           <label>Current Team</label>
-          <input
+          <input data-testid="currentTeam-input"
             name="currentTeam"
             value={player.currentTeam}
             onChange={handleChange}
@@ -377,86 +368,28 @@ const handleSubmit = async (e) => {
         </div>
       </div>
 
-      <div className="section-title">Performance Statistics</div>
+      
+      
 
-      <div className="form-row">
-        <div>
-          <label>Jersey Number</label>
-          <input
-            name="jerseyNumber"
-            type="number"
-            value={player.jerseyNumber}
-            onChange={handleChange}
-            placeholder="Enter jersey number"
-          />
-        </div>
+        
+        
+        
+      
 
-        <div>
-          <label>Career Goals</label>
-          <input
-            name="careerGoals"
-            type="number"
-            value={player.careerGoals}
-            onChange={handleChange}
-            placeholder="Total goals scored"
-          />
-        </div>
+      
 
-        <div>
-          <label>Career Assists</label>
-          <input
-            name="careerAssists"
-            type="number"
-            value={player.careerAssists}
-            onChange={handleChange}
-            placeholder="Total assists"
-          />
-        </div>
-
-        <div>
-          <label>Performance Rating (1-10)</label>
-          <input
-            name="performanceRating"
-            type="number"
-            min="1"
-            max="10"
-            value={player.performanceRating}
-            onChange={handleChange}
-            placeholder="Rate 1-10"
-          />
-        </div>
-      </div>
-
-      <div className="form-row">
-        <div>
-          <label>International Caps</label>
-          <input
-            name="internationalCaps"
-            type="number"
-            value={player.internationalCaps}
-            onChange={handleChange}
-            placeholder="International appearances"
-          />
-        </div>
-
-        <div>
-          <label>Debut Date</label>
-          <input
-            name="debutDate"
-            type="date"
-            value={player.debutDate}
-            onChange={handleChange}
-          />
-        </div>
+        
       </div>
 
       <div className="button-row">
-        <button type="button" onClick={() => navigate("/players")}>
+        <button data-testid="back-button" type="button" onClick={() => navigate("/players")}>
           Back
         </button>
-        <button type="submit">Create Player</button>
+        <button data-testid="submit-button" type="submit">
+          Create Player
+        </button>
       </div>
-      </div>
+      
     </form>
   );
 };

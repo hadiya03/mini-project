@@ -31,6 +31,7 @@ import Dashboard from "./pages/Dashboard";
 import "./components/SidebarT"
 import SidebarT from "./components/SidebarT";
 import HeaderT from "./components/HeaderT";
+import HeaderA from "./components/HeaderA";
 import PlayerProfileT from "./components/pages/PlayerProfileT";
 import PlayerReadinessT from "./components/pages/PlayerReadinessT";
 import TrainingSessionsT from "./components/pages/TrainingSessionsT";
@@ -362,7 +363,7 @@ const App = () => {
                 <div style={{ display: "flex", height: "100%" }}>
                   <Sidebarr />
                   <div style={{ flex: 1 }}>
-                    <Header />
+                    <HeaderA />
                     <AdminDashboard />
                   </div>
                 </div>
@@ -377,7 +378,7 @@ const App = () => {
                 <div style={{ display: "flex", height: "100%" }}>
                   <Sidebarr />
                   <div style={{ flex: 1 }}>
-                    <Header />
+                    <HeaderA />
                     <Analytics />
                   </div>
                 </div>
@@ -392,7 +393,7 @@ const App = () => {
                 <div style={{ display: "flex", height: "100%" }}>
                   <Sidebarr />
                   <div style={{ flex: 1 }}>
-                    <Header />
+                    <HeaderA />
                     <ManageUsers />
                   </div>
                 </div>
@@ -407,7 +408,7 @@ const App = () => {
                 <div style={{ display: "flex", height: "100%" }}>
                   <Sidebarr />
                   <div style={{ flex: 1 }}>
-                    <Header />
+                    <HeaderA />
                     <SystemLogs />
                   </div>
                 </div>
