@@ -44,6 +44,10 @@ app.use("/api", playermsg);
 // Google Fit OAuth + Fit API endpoints
 app.use("/", googleFitRoutes);
 
+
+if (process.env.NODE_ENV !== "test") {
 app.listen(5000, () => {
   console.log("Server running on http://localhost:5000");
 });
+}
+module.exports = app; 
