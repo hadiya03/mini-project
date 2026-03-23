@@ -5,8 +5,8 @@ const { Pool } = require("pg");
 const db = new Pool({
   user: process.DB_USER || "postgres",
   host: process.DB_HOST || "localhost",
-  database: process.DB_NAME || "mini1",
-  password: process.DB_PASSWORD || "root1234",
+  database: process.DB_NAME || "Mini",
+  password: process.DB_PASSWORD || "kiran2005",
   port: process.DB_PORT || 5432,
 });
 

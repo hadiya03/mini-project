@@ -131,7 +131,7 @@ const login = async (req, res) => {
     }
 
     // Record login in user_logs
-    await loginLog(user.id);
+    // await loginLog(user.id);
 
     // ✅ Make sure role is returned
     return res.json({
