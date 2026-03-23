@@ -153,7 +153,7 @@ const TrainingSessions = () => {
         </label>
 
         <label>
-          Sprint Count
+          Sprint 
           <input type="number" name="sprint_count" value={form.sprint_count} onChange={handleChange} />
         </label>
 
