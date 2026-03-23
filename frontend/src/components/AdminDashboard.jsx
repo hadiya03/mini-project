@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { API_URL } from "../config";
 import "./AdminDashboard.css";
 const AdminDashboard = () => {
   const [users, setUsers] = useState([]);
@@ -11,12 +12,12 @@ const AdminDashboard = () => {
   }, []);
 
   const fetchUsers = async () => {
-    const res = await axios.get("http://localhost:5000/api/users");
+    const res = await axios.get(`${API_URL}/api/users`);
     setUsers(res.data);
   };
 
   const fetchLogs = async () => {
-    const res = await axios.get("http://localhost:5000/api/logs");
+    const res = await axios.get(`${API_URL}/api/logs`);
     setLogs(res.data);
   };
 

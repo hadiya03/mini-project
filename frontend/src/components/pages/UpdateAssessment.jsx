@@ -36,7 +36,7 @@ const UpdateAssessment = () => {
 
         // Player daily metrics
         const resMetrics = await fetch(
-          `http://localhost:5000/api/player/${id}/daily-input`
+          `${API_URL}/api/player/${id}/daily-input`
         );
         if (resMetrics.ok) {
           const data = await resMetrics.json();
@@ -45,7 +45,7 @@ const UpdateAssessment = () => {
 
         // Player profile
         const resProfile = await fetch(
-          `http://localhost:5000/api/players/${id}`
+          `${API_URL}/api/players/${id}`
         );
         if (resProfile.ok) {
           const data = await resProfile.json();
@@ -54,7 +54,7 @@ const UpdateAssessment = () => {
 
         // ✅ Fetch latest training duration
         const resTraining = await fetch(
-          `http://localhost:5000/api/training-sessions/latest`
+          `${API_URL}/api/training-sessions/latest`
         );
         if (resTraining.ok) {
           const data = await resTraining.json();
@@ -73,7 +73,7 @@ const UpdateAssessment = () => {
   const handleEmailReminder = async () => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/assessments/${id}/send-reminder`,
+        `${API_URL}/api/assessments/${id}/send-reminder`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -175,7 +175,7 @@ const UpdateAssessment = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/assessments/${id}`,
+        `${API_URL}/api/assessments/${id}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -319,6 +319,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import "./updateAssessment.css";
+import { API_URL } from "../../config";
 
 const UpdateAssessment = () => {
   const { id } = useParams();
@@ -347,7 +348,7 @@ const UpdateAssessment = () => {
         setLoading(true);
 
         const resMetrics = await fetch(
-          `http://localhost:5000/api/player/${id}/daily-input`
+          `${API_URL}/api/player/${id}/daily-input`
         );
         if (resMetrics.ok) {
           const data = await resMetrics.json();
@@ -355,7 +356,7 @@ const UpdateAssessment = () => {
         }
 
         const resProfile = await fetch(
-          `http://localhost:5000/api/players/${id}`
+          `${API_URL}/api/players/${id}`
         );
         if (resProfile.ok) {
           const data = await resProfile.json();
@@ -363,7 +364,7 @@ const UpdateAssessment = () => {
         }
 
         const resTraining = await fetch(
-          `http://localhost:5000/api/training-sessions/latest`
+          `${API_URL}/api/training-sessions/latest`
         );
         if (resTraining.ok) {
           const data = await resTraining.json();
@@ -371,7 +372,7 @@ const UpdateAssessment = () => {
         }
 
         const resAvgLoad = await fetch(
-          `http://localhost:5000/api/training-sessions/average-load/${id}`
+          `${API_URL}/api/training-sessions/average-load/${id}`
         );
         if (resAvgLoad.ok) {
           const data = await resAvgLoad.json();
@@ -390,7 +391,7 @@ const UpdateAssessment = () => {
   const handleEmailReminder = async () => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/assessments/${id}/send-reminder`,
+        `${API_URL}/api/assessments/${id}/send-reminder`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -439,7 +440,7 @@ const calculateAndSync = async () => {
 
   try {
     const res = await fetch(
-      `http://localhost:5000/api/assessments/${id}`,
+      `${API_URL}/api/assessments/${id}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

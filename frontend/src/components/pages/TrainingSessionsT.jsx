@@ -3,6 +3,7 @@ import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import { toast } from "sonner";
 import "./trainingSessions.css";
+import { API_URL } from "../../config";
 
 const TrainingSessionsT = () => {
   /* ================= STATE ================= */
@@ -11,9 +12,7 @@ const TrainingSessionsT = () => {
     session_date: "",
     duration_minutes: "",
     distance_km: "",
-    sprint_count: "",
     rpe: 5,
-    minutes_played: "",
   });
 
   const [sessions, setSessions] = useState([]);
@@ -26,7 +25,7 @@ const TrainingSessionsT = () => {
 
   const fetchSessions = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/training-sessions");
+      const res = await fetch(`${API_URL}/api/training-sessions`);
       const data = await res.json();
       setSessions(data);
     } catch (err) {
@@ -45,9 +44,7 @@ const TrainingSessionsT = () => {
       session_date: "",
       duration_minutes: "",
       distance_km: "",
-      sprint_count: "",
       rpe: 5,
-      minutes_played: "",
     });
   };
 
@@ -58,7 +55,7 @@ const TrainingSessionsT = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/training-sessions", {
+      const res = await fetch(`${API_URL}/api/training-sessions`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -80,8 +77,6 @@ const TrainingSessionsT = () => {
 
     if (load > 800) return { text: "Overtraining Risk", color: "#dc2626" };
     if (load > 500) return { text: "High Fatigue", color: "#f59e0b" };
-    if (s.sprint_count > 30) return { text: "Sprint Strain", color: "#eab308" };
-    if (s.minutes_played > 100) return { text: "Match Overload", color: "#eab308" };
 
     return { text: "Normal", color: "#16a34a" };
   };
@@ -95,9 +90,7 @@ const TrainingSessionsT = () => {
       "Date",
       "Duration",
       "Distance",
-      "Sprints",
       "RPE",
-      "Minutes",
       "Load",
       "Status",
     ];
@@ -109,9 +102,7 @@ const TrainingSessionsT = () => {
         s.session_date,
         s.duration_minutes,
         s.distance_km || 0,
-        s.sprint_count || 0,
         s.rpe,
-        s.minutes_played || 0,
         s.rpe * s.duration_minutes,
         risk.text,
       ];
@@ -153,18 +144,8 @@ const TrainingSessionsT = () => {
         </label>
 
         <label>
-          Sprint Count
-          <input type="number" name="sprint_count" value={form.sprint_count} onChange={handleChange} />
-        </label>
-
-        <label>
           Intensity (RPE): {form.rpe}
           <input type="range" min="1" max="10" name="rpe" value={form.rpe} onChange={handleChange} />
-        </label>
-
-        <label>
-          Minutes Played
-          <input type="number" name="minutes_played" value={form.minutes_played} onChange={handleChange} />
         </label>
 
         <div className="actions">
@@ -198,9 +179,7 @@ const TrainingSessionsT = () => {
                 <th>Date</th>
                 <th>Duration</th>
                 <th>Distance</th>
-                <th>Sprints</th>
                 <th>RPE</th>
-                <th>Minutes</th>
                 <th>Load</th>
                 <th>Status</th>
               </tr>
@@ -215,9 +194,7 @@ const TrainingSessionsT = () => {
                     <td>{s.session_date}</td>
                     <td>{s.duration_minutes}</td>
                     <td>{s.distance_km || 0}</td>
-                    <td>{s.sprint_count || 0}</td>
                     <td>{s.rpe}</td>
-                    <td>{s.minutes_played || 0}</td>
                     <td>{s.rpe * s.duration_minutes}</td>
                     <td>
                       <span className="status-badge" style={{ background: risk.color }}>

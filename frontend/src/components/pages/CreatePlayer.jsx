@@ -56,7 +56,7 @@ const CreatePlayer = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:5000/api/player/players", {
+      const res = await fetch(`${API_URL}/api/player/players`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -189,6 +189,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import "./createplayer.css"
+import { API_URL } from "../../config";
 const CreatePlayer = () => {
   const navigate = useNavigate();
 
@@ -244,7 +245,7 @@ const handleSubmit = async (e) => {
   };
 
   try {
-    const res = await fetch("http://localhost:5000/api/player/players", {
+    const res = await fetch(`${API_URL}/api/player/players`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),

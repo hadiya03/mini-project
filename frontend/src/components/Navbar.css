@@ -5,34 +5,45 @@
 .app-navbar {
   background: var(--color-primary-dark);
   padding: 0 var(--space-xl);
-  height: 56px;
+  min-height: 80px;
+  height: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 50;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
 
 .app-navbar-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
 }
 
 .app-navbar-icon {
-  font-size: 22px;
+  font-size: 28px;
+  line-height: 1;
 }
 
 .app-navbar-title {
-  font-weight: 700;
-  font-size: var(--font-size-md);
+  font-weight: 800;
+  font-size: 1.8rem;
   color: white;
   letter-spacing: -0.01em;
 }
 
 .app-navbar-actions {
   display: flex;
-  gap: 10px;
+  gap: 14px;
   align-items: center;
+}
+
+.app-navbar-btn {
+  padding: 10px 22px;
+  border-radius: var(--radius-lg);
+  font-size: 0.95rem;
+  min-width: 100px;
+  justify-content: center;
 }
 
 .app-navbar-btn {
@@ -53,6 +64,7 @@
   background: var(--color-primary);
   color: white;
 }
+
 .app-navbar-btn-accent:hover {
   background: var(--color-primary-hover);
 }
@@ -62,6 +74,7 @@
   color: white;
   border: 1.5px solid rgba(255, 255, 255, 0.4);
 }
+
 .app-navbar-btn-outline:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.6);
@@ -72,6 +85,7 @@
   color: #fca5a5;
   border: 1px solid rgba(239, 68, 68, 0.3);
 }
+
 .app-navbar-btn-logout:hover {
   background: var(--color-danger);
   color: white;

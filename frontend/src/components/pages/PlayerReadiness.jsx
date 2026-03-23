@@ -14,7 +14,7 @@ const PlayerReadiness = () => {
     const fetchAllData = async () => {
       try {
         
-        const playerRes = await fetch("http://localhost:5000/api/player/players");
+        const playerRes = await fetch(`${API_URL}/api/player/players`);
         const players = await playerRes.json();
 
         const foundPlayer = players.find(
@@ -31,7 +31,7 @@ const PlayerReadiness = () => {
 
         
         const assessRes = await fetch(
-          `http://localhost:5000/api/assessments/${id}`
+          `${API_URL}/api/assessments/${id}`
         );
 
         if (assessRes.ok) {
@@ -128,6 +128,7 @@ export default PlayerReadiness;*/
 import React, { useEffect, useState } from "react";  
 import { useParams, useNavigate } from "react-router-dom";
 import "./playerReadiness.css";
+import { API_URL } from "../../config";
 
 const PlayerReadiness = () => {
   const { id } = useParams();
@@ -141,7 +142,7 @@ const PlayerReadiness = () => {
     const fetchAllData = async () => {
       try {
         /* ===== FETCH PLAYER ===== */
-        const playerRes = await fetch("http://localhost:5000/api/player/players");
+        const playerRes = await fetch(`${API_URL}/api/player/players`);
         const players = await playerRes.json();
 
         const foundPlayer = players.find((p) => String(p.id) === String(id));
@@ -155,7 +156,7 @@ const PlayerReadiness = () => {
         setPlayer(foundPlayer);
 
         /* ===== FETCH LATEST ASSESSMENT ===== */
-        const assessRes = await fetch(`http://localhost:5000/api/assessments/${id}`);
+        const assessRes = await fetch(`${API_URL}/api/assessments/${id}`);
         if (assessRes.ok) {
           const assessData = await assessRes.json();
           setAssessment(assessData);

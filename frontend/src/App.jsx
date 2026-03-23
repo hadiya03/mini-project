@@ -54,7 +54,7 @@ const App = () => {
   };
 
   return (
-    <div style={{ height: "100vh", display: "flex", flexDirection: "column" }}>
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <Toaster richColors position="top-center" closeButton />
       <Navbar />
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "sonner";
 import "./styles/teamAnalytics.css";
+import { API_URL } from "../../config";
 
 const TeamAnalytics = () => {
   const [players, setPlayers] = useState([]);
@@ -19,7 +20,7 @@ const TeamAnalytics = () => {
   const fetchLastTeam = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch("http://localhost:5000/api/trainer/last-team", {
+      const res = await fetch(`${API_URL}/api/trainer/last-team`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       if (!res.ok) return;
@@ -37,7 +38,7 @@ const TeamAnalytics = () => {
   const fetchPlayers = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch("http://localhost:5000/api/trainer/trainer-players", {
+      const res = await fetch(`${API_URL}/api/trainer/trainer-players`, {
         headers: token ? { Authorization: `Bearer ${token}` } : undefined,
       });
       const data = await res.json();
@@ -162,7 +163,7 @@ const TeamAnalytics = () => {
   const saveTeam = async (tA, tB, best) => {
     try {
       const token = localStorage.getItem("token");
-      await fetch("http://localhost:5000/api/trainer/save-team", {
+      await fetch(`${API_URL}/api/trainer/save-team`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { toast } from "sonner";
 import "../pages/styles/players.css";
+import { API_URL } from "../../config";
 
 const PlayersT = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const PlayersT = () => {
       setLoading(true);
       setError("");
 
-      const res = await fetch("http://localhost:5000/api/trainer/trainer-players");
+      const res = await fetch(`${API_URL}/api/trainer/trainer-players`);
       if (!res.ok) throw new Error("Server error");
 
       const data = await res.json();
@@ -66,7 +67,7 @@ const PlayersT = () => {
     if (!confirm) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/api/trainer/trainer-playersdelete/${id}`, {
+      const res = await fetch(`${API_URL}/api/trainer/trainer-playersdelete/${id}`, {
         method: "DELETE",
       });
 

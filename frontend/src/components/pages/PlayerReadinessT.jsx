@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";  
 import { useParams, useNavigate } from "react-router-dom";
 import "./playerReadiness.css";
+import { API_URL } from "../../config";
 
 
 const PlayerReadinessT = () => {
@@ -16,7 +17,7 @@ const PlayerReadinessT = () => {
     const fetchAllData = async () => {
       try {
         /* ===== FETCH PLAYER ===== */
-        const playerRes = await fetch("http://localhost:5000/api/player/players");
+        const playerRes = await fetch(`${API_URL}/api/player/players`);
         const players = await playerRes.json();
 
         const foundPlayer = players.find((p) => String(p.id) === String(id));
@@ -30,7 +31,7 @@ const PlayerReadinessT = () => {
         setPlayer(foundPlayer);
 
         /* ===== FETCH LATEST ASSESSMENT ===== */
-        const assessRes = await fetch(`http://localhost:5000/api/assessments/${id}`);
+        const assessRes = await fetch(`${API_URL}/api/assessments/${id}`);
         if (assessRes.ok) {
           const assessData = await assessRes.json();
           setAssessment(assessData);
@@ -114,7 +115,7 @@ const PlayerReadinessT = () => {
     onClick={async () => {
       try {
         await fetch(
-          `http://localhost:5000/api/trainer/message/${player.player_id}`,
+          `${API_URL}/api/trainer/message/${player.player_id}`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },

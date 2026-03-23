@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { API_URL } from "../config";
 
 export default function SystemLogs() {
   const [logs, setLogs] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/logs")
+    fetch(`${API_URL}/api/logs`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { API_URL } from "../config";
 import "./ManageUsers.css";
 
 const ManageUsers = () => {
@@ -9,7 +10,7 @@ const ManageUsers = () => {
   /* ================= FETCH USERS ================= */
   const fetchUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/users"); 
+      const res = await axios.get(`${API_URL}/api/users`); 
       setUsers(res.data);
       setLoading(false);
     } catch (err) {
@@ -27,7 +28,7 @@ const ManageUsers = () => {
     if (!window.confirm("Delete this user?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/users/${id}`);
+      await axios.delete(`${API_URL}/api/users/${id}`);
       fetchUsers();
     } catch (err) {
       console.error(err);
@@ -37,7 +38,7 @@ const ManageUsers = () => {
   /* ================= VERIFY TOGGLE ================= */
   const toggleVerify = async (id, currentStatus) => {
     try {
-      await axios.put(`http://localhost:5000/api/users/verify/${id}`, {
+      await axios.put(`${API_URL}/api/users/verify/${id}`, {
         is_verified: !currentStatus,
       });
       fetchUsers();

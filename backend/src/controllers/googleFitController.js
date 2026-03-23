@@ -1,5 +1,7 @@
 const db = require("../db/db");
 const { oauth2Client, GOOGLE_FIT_SCOPES } = require("../googleFit");
+
+const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
 const {
   fetchSleepHoursFromGoogleFit,
   persistGoogleFitMetricsForPlayerEmail,
@@ -78,7 +80,7 @@ const googleAuthCallback = async (req, res) => {
 
     if (!refreshToken) {
       return res.redirect(
-        "http://localhost:5173/playerdashboard?googlefit=missing_refresh_token"
+        `${FRONTEND_URL}/playerdashboard?googlefit=missing_refresh_token`
       );
     }
 
@@ -113,10 +115,10 @@ const googleAuthCallback = async (req, res) => {
     }
 
     // Redirect back into the app.
-    return res.redirect("http://localhost:5173/playerdashboard");
+    return res.redirect(`${FRONTEND_URL}/playerdashboard`);
   } catch (err) {
     console.error("googleAuthCallback error:", err);
-    return res.redirect("http://localhost:5173/playerdashboard?googlefit=error");
+    return res.redirect(`${FRONTEND_URL}/playerdashboard?googlefit=error`);
   }
 };
 

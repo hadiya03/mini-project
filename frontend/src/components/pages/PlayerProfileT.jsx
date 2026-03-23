@@ -15,7 +15,7 @@ const PlayerProfile = () => {
     const fetchPlayer = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/api/trainer/trainer-playerprofile/${id}`
+          `${API_URL}/api/trainer/trainer-playerprofile/${id}`
         );
 
         if (!res.ok) throw new Error("Failed to fetch player");
@@ -44,7 +44,7 @@ const PlayerProfile = () => {
   const handleSave = async () => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/trainer/trainer-players/${id}`,
+        `${API_URL}/api/trainer/trainer-players/${id}`,
         {
           method: "PUT",
           headers: {
@@ -253,6 +253,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "sonner";
 import "./playerProfile.css";
+import { API_URL } from "../../config";
 
 const PlayerProfile = () => {
   const navigate = useNavigate();
@@ -267,7 +268,7 @@ const PlayerProfile = () => {
     const fetchPlayer = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/api/trainer/trainer-playerprofile/${id}`
+          `${API_URL}/api/trainer/trainer-playerprofile/${id}`
         );
 
         if (!res.ok) throw new Error("Failed to fetch player");
@@ -296,7 +297,7 @@ const PlayerProfile = () => {
   const handleSave = async () => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/trainer/trainer-players/${id}`,
+        `${API_URL}/api/trainer/trainer-players/${id}`,
         {
           method: "PUT",
           headers: {

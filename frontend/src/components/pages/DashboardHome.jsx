@@ -17,7 +17,7 @@ const Dashboard = () => {
   }, []);
 
   const fetchDashboard = async () => {
-    const res = await axios.get("http://localhost:5000/api/dashboard");
+    const res = await axios.get(`${API_URL}/api/dashboard`);
     setTotalPlayers(res.data.totalPlayers);
     setAvgReadiness(res.data.averageReadiness);
     setPlayersAtRisk(res.data.playersAtRisk);
@@ -27,7 +27,7 @@ const Dashboard = () => {
   };
 
   const fetchPlayers = async () => {
-    const res = await axios.get("http://localhost:5000/api/player/players");
+    const res = await axios.get(`${API_URL}/api/player/players`);
     setPlayers(res.data);
   };
 
@@ -114,6 +114,7 @@ export default Dashboard;*/
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../pages/styles/dashboard.css";
+import { API_URL } from "../../config";
 
 const Dashboard = () => {
   const [totalPlayers, setTotalPlayers] = useState(0);
@@ -130,7 +131,7 @@ const Dashboard = () => {
   }, []);
 
   const fetchDashboard = async () => {
-    const res = await axios.get("http://localhost:5000/api/dashboard");
+    const res = await axios.get(`${API_URL}/api/dashboard`);
     setTotalPlayers(res.data.totalPlayers);
     setAvgReadiness(res.data.averageReadiness);
     setPlayersAtRisk(res.data.playersAtRisk);
@@ -140,7 +141,7 @@ const Dashboard = () => {
   };
 
   const fetchPlayers = async () => {
-    const res = await axios.get("http://localhost:5000/api/player/players");
+    const res = await axios.get(`${API_URL}/api/player/players`);
     setPlayers(res.data);
   };
 

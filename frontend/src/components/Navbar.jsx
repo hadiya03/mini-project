@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { API_URL } from "../config";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -12,7 +13,7 @@ const Navbar = () => {
       if (userStr) {
         const user = JSON.parse(userStr);
         if (user && user.id) {
-          await fetch("http://localhost:5000/api/auth/logout", {
+          await fetch(`${API_URL}/api/auth/logout`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ userId: user.id })

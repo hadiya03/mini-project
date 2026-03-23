@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { API_URL } from "../config";
 import "./Analytics.css";
 import {
   Bar,
@@ -33,7 +34,7 @@ const Analytics = () => {
   });
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/analytics")
+    fetch(`${API_URL}/api/analytics`)
       .then(res => res.json())
       .then(result => {
         if (result && result.weeklyLogins) {

@@ -1,6 +1,7 @@
 import React, { useState } from "react"; 
 import axios from "axios";
 import { toast } from "sonner";
+import { API_URL } from "../config";
 
 const Signup = () => {
   const [step, setStep] = useState(1);
@@ -20,7 +21,7 @@ const Signup = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/s", form);
+      const res = await axios.post(`${API_URL}/api/auth/s`, form);
       toast.success(res.data.message);
       if (res.data.success) setStep(2);
     } catch (err) {
@@ -32,7 +33,7 @@ const Signup = () => {
   const handleVerifyOtp = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/verify-otp", {
+      const res = await axios.post(`${API_URL}/api/auth/verify-otp`, {
         email: form.email,
         otp,
       });
