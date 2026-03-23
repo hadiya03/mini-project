@@ -1,94 +1,73 @@
-/* =============================
-   PAGE LAYOUT
-============================= */
+/* ============================================================
+   ANALYTICS — Admin Analytics Page Styles
+   ============================================================ */
 
 .analytics-container {
-  padding: 32px;
-  background: #f6f8fb;
+  padding: var(--space-xl);
+  background: var(--color-bg);
   min-height: 100vh;
-  font-family: "Segoe UI", sans-serif;
+  font-family: var(--font-family);
 }
 
-/* =============================
-   HEADER
-============================= */
-
 .analytics-container h1 {
-  font-size: 26px;
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: #222;
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--color-text);
 }
 
 .subtitle {
-  color: #6b7280;
-  margin-bottom: 25px;
-  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+  font-size: var(--font-size-base);
 }
 
-/* =============================
-   GRID LAYOUT
-============================= */
-
+/* Grid */
 .charts-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: var(--space-lg);
 }
 
-/* full width chart */
 .full-width {
   grid-column: span 2;
 }
 
-/* =============================
-   CHART CARDS
-============================= */
-
+/* Chart Card */
 .chart-card {
-  background: white;
-  border-radius: 14px;
-  padding: 22px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-  transition: all 0.25s ease;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-base);
   height: 360px;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-/* hover effect */
 .chart-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
 }
 
-/* =============================
-   CARD TITLES
-============================= */
-
 .chart-card h3 {
-  font-size: 16px;
+  font-size: var(--font-size-md);
   font-weight: 600;
-  margin-bottom: 16px;
-  color: #374151;
+  margin-bottom: var(--space-md);
+  color: var(--color-text);
   text-align: center;
 }
 
-/* =============================
-   RESPONSIVE
-============================= */
-
+/* Responsive */
 @media (max-width: 900px) {
   .charts-grid {
     grid-template-columns: 1fr;
   }
-
   .full-width {
     grid-column: span 1;
   }
-
   .chart-card {
     height: 320px;
   }

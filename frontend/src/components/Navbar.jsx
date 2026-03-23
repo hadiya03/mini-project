@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -28,62 +29,23 @@ const Navbar = () => {
   };
 
   return (
-    <nav style={{
-      background: "linear-gradient(135deg, #1f5f37 0%, #167934 100%)",
-      padding: "1rem",
-      boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
-      borderBottom: "3px solid rgba(255,255,255,0.2)",
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center"
-    }}>
-      <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-        <span style={{ fontSize: "24px", animation: "bounce 2s infinite" }}>⚽</span>
-        <span style={{ fontWeight: "bold", fontSize: "18px", color: "white" }}>Football Manager</span>
+    <nav className="app-navbar">
+      <div className="app-navbar-brand">
+        <span className="app-navbar-icon">⚽</span>
+        <span className="app-navbar-title">FitTrack</span>
       </div>
-      <div style={{ display: "flex", gap: "1rem" }}>
+      <div className="app-navbar-actions">
         {!token ? (
           <>
-            <Link
-              to="/s"
-              style={{
-                padding: "0.5rem 1rem",
-                background: "linear-gradient(135deg, #ffd700 0%, #ffb347 100%)",
-                color: "#0a3622",
-                textDecoration: "none",
-                borderRadius: "5px",
-                fontWeight: "bold"
-              }}
-            >
+            <Link to="/s" className="app-navbar-btn app-navbar-btn-accent">
               Register
             </Link>
-            <Link
-              to="/l"
-              style={{
-                padding: "0.5rem 1rem",
-                background: "rgba(255,255,255,0.1)",
-                color: "white",
-                textDecoration: "none",
-                borderRadius: "5px",
-                border: "2px solid rgba(255,255,255,0.5)"
-              }}
-            >
+            <Link to="/l" className="app-navbar-btn app-navbar-btn-outline">
               Login
             </Link>
           </>
         ) : (
-          <button
-            onClick={handleLogout}
-            style={{
-              padding: "0.5rem 1rem",
-              background: "linear-gradient(135deg, #dc2626 0%, #b91c1c 100%)",
-              color: "white",
-              border: "none",
-              borderRadius: "5px",
-              cursor: "pointer",
-              fontWeight: "bold"
-            }}
-          >
+          <button onClick={handleLogout} className="app-navbar-btn app-navbar-btn-logout">
             Logout
           </button>
         )}
@@ -93,6 +55,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-

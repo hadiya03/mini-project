@@ -3,11 +3,11 @@ const { Pool } = require("pg");
 
 // Create PostgreSQL connection pool
 const db = new Pool({
-  user: process.env.DB_USER || "postgres",
-  host: process.env.DB_HOST || "localhost",
-  database: process.env.DB_NAME || "mern_db",
-  password: process.env.DB_PASSWORD || "hadiyamk",
-  port: process.env.DB_PORT || 5432,
+  user: process.DB_USER || "postgres",
+  host: process.DB_HOST || "localhost",
+  database: process.DB_NAME || "mini1",
+  password: process.DB_PASSWORD || "root1234",
+  port: process.DB_PORT || 5432,
 });
 
 // Test connection on startup

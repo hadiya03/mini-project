@@ -8,7 +8,7 @@ const Signup = () => {
     name: "",
     email: "",
     password: "",
-    role: "", // ✅ added role
+    role: "",
   });
   const [otp, setOtp] = useState("");
 
@@ -57,10 +57,7 @@ const Signup = () => {
       }}
     >
       {step === 1 && (
-        <form
-          onSubmit={handleRegister}
-          className="football-form"
-        >
+        <form onSubmit={handleRegister} className="football-form">
           <h2>Register</h2>
 
           <input
@@ -90,25 +87,11 @@ const Signup = () => {
             required
           />
 
-          {/* ✅ Role selection added */}
           <select
             name="role"
             value={form.role}
             onChange={handleChange}
             required
-            style={{
-              width: "100%",
-              padding: "15px 18px",
-              borderRadius: "10px",
-              border: "2px solid #e0e7ff",
-              fontSize: "16px",
-              outline: "none",
-              transition: "all 0.3s ease",
-              background: "#f8f9fa",
-              fontWeight: "500",
-              color: "#1a2332",
-              marginBottom: "20px",
-            }}
           >
             <option value="">Select Role</option>
             <option value="trainer">Trainer</option>
@@ -116,19 +99,14 @@ const Signup = () => {
             <option value="admin">Admin</option>
           </select>
 
-          <button
-            type="submit"
-          >
+          <button type="submit">
             Verify OTP
           </button>
         </form>
       )}
 
       {step === 2 && (
-        <form
-          onSubmit={handleVerifyOtp}
-          className="football-form"
-        >
+        <form onSubmit={handleVerifyOtp} className="football-form">
           <h2>Enter OTP</h2>
 
           <input
@@ -139,9 +117,7 @@ const Signup = () => {
             required
           />
 
-          <button
-            type="submit"
-          >
+          <button type="submit">
             Verify OTP
           </button>
         </form>
@@ -151,4 +127,3 @@ const Signup = () => {
 };
 
 export default Signup;
-

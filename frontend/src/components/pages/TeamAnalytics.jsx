@@ -238,7 +238,7 @@ const TeamAnalytics = () => {
         return (
           <div className="ta-best-xi-section">
             <h3 className="ta-xi-heading">🏅 Predicted Starting XI</h3>
-            <p className="ta-xi-sub">Formation: 1-4-3-3 &nbsp;|&nbsp; Total Fitness: <strong>{evaluate(bestTeam).toFixed(1)}</strong></p>
+            <p className="ta-xi-sub">Formation: 4-3-3 &nbsp;|&nbsp; Total Fitness: <strong>{evaluate(bestTeam).toFixed(1)}</strong></p>
 
             <div className="ta-formation">
               {["GK", "DEF", "MID", "FWD"].map(cat => (

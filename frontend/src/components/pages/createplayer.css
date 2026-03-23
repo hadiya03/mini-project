@@ -1,106 +1,36 @@
-/* ========================================
-   PROFESSIONAL FOOTBALL PLAYER FORM
-   ======================================== */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background: linear-gradient(135deg, #0a3622 0%, #1a5c3c 50%, #2d7f4f 100%);
-  min-height: 100vh;
-  font-family: 'Segoe UI', 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* ========================================
-   MAIN CONTAINER WITH FOOTBALL BACKGROUND
-   ======================================== */
+/* ============================================================
+   CREATE PLAYER — Form Page Styles
+   ============================================================ */
 
 .create-player-container {
   max-width: 950px;
-  margin: 50px auto;
+  margin: var(--space-xl) auto;
   padding: 0;
-  background-color: #1a5c3c;
-  background-image:
-    /* Main pitch gradient */
-    linear-gradient(180deg, #2d7f4f 0%, #1f5f37 50%, #1a4d2e 100%),
-    /* Subtle grass texture */
-    repeating-linear-gradient(
-      0deg,
-      rgba(255,255,255,0.03) 0px,
-      rgba(255,255,255,0.03) 2px,
-      transparent 2px,
-      transparent 4px
-    ),
-    /* Corner accents */
-    radial-gradient(circle at 2% 2%, rgba(255,255,255,0.08) 0%, transparent 5%),
-    radial-gradient(circle at 98% 2%, rgba(255,255,255,0.08) 0%, transparent 5%),
-    radial-gradient(circle at 2% 98%, rgba(255,255,255,0.08) 0%, transparent 5%),
-    radial-gradient(circle at 98% 98%, rgba(255,255,255,0.08) 0%, transparent 5%);
-  border-radius: 16px;
-  box-shadow: 
-    0 25px 50px rgba(0,0,0,0.35),
-    inset 0 1px 0 rgba(255,255,255,0.1);
-  font-family: 'Segoe UI', 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
-  position: relative;
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-border);
+  font-family: var(--font-family);
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.15);
 }
 
-/* Center line decoration */
-.create-player-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(180deg, 
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0.2) 20%,
-    rgba(255,255,255,0.2) 80%,
-    rgba(255,255,255,0) 100%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* ========================================
-   FORM CONTENT WRAPPER
-   ======================================== */
-
+/* Form Content */
 .form-content {
-  background: linear-gradient(135deg, rgba(255,255,255,0.99) 0%, rgba(250,251,252,0.99) 100%);
-  padding: 45px 50px;
-  position: relative;
-  z-index: 10;
-  margin: 25px;
-  border-radius: 12px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-  border-left: 5px solid #1f5f37;
+  padding: var(--space-2xl) var(--space-xl);
 }
 
-/* ========================================
-   SECTION TITLES
-   ======================================== */
-
+/* Section Titles */
 .section-title {
-  font-size: 22px;
+  font-size: var(--font-size-lg);
   font-weight: 700;
-  color: #0a3622;
-  margin-top: 32px;
-  margin-bottom: 28px;
-  padding: 12px 0;
+  color: var(--color-primary-dark);
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-lg);
   padding-bottom: 12px;
-  border-bottom: 3px solid #1f5f37;
-  text-align: left;
-  position: relative;
-  letter-spacing: -0.3px;
+  border-bottom: 2px solid var(--color-primary-light);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .form-content > .section-title:first-child {
@@ -108,272 +38,117 @@ body {
 }
 
 .section-title::before {
-  content: '?';
-  font-size: 24px;
-  animation: bounce 2s infinite;
+  content: '⚽';
+  font-size: 20px;
 }
 
-@keyframes bounce {
-  0%, 100% { 
-    transform: translateY(0);
-  }
-  50% { 
-    transform: translateY(-5px);
-  }
-}
-
-/* ========================================
-   FORM GRID
-   ======================================== */
-
+/* Form Grid */
 .form-row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
-  margin-bottom: 32px;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
 }
 
-/* ========================================
-   FORM LABELS
-   ======================================== */
-
+/* Labels */
 label {
   display: block;
-  font-size: 12px;
-  font-weight: 700;
-  color: #0a3622;
-  margin-bottom: 8px;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: 6px;
   text-transform: uppercase;
-  letter-spacing: 0.7px;
-  opacity: 0.9;
+  letter-spacing: 0.05em;
 }
 
-/* ========================================
-   INPUT FIELDS
-   ======================================== */
-
+/* Inputs */
 input {
   width: 100%;
-  padding: 13px 16px;
-  border-radius: 8px;
-  border: 2px solid #e0e7ff;
-  font-size: 15px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family);
   outline: none;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  background: #f8f9fa;
+  transition: all var(--transition-fast);
+  background: var(--color-surface);
   font-weight: 500;
-  color: #1a2332;
+  color: var(--color-text);
 }
 
 input::placeholder {
-  color: #9ca3af;
+  color: var(--color-text-muted);
 }
 
 input:hover {
-  border-color: #1f5f37;
-  background: #ffffff;
-  box-shadow: 0 4px 12px rgba(31, 95, 55, 0.08);
+  border-color: var(--color-primary);
 }
 
 input:focus {
-  border-color: #1f5f37;
-  background: #ffffff;
-  box-shadow: 0 0 0 4px rgba(31, 95, 55, 0.12);
-  transform: translateY(-1px);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
 }
 
-/* Performance Stats Input Highlight */
-.form-row input[name*="goals"],
-.form-row input[name*="assists"],
-.form-row input[name*="Rating"],
-.form-row input[name*="Caps"],
-.form-row input[name*="jersey"] {
-  border-color: #a8d5ba;
-}
-
-.form-row input[name*="goals"]:focus,
-.form-row input[name*="assists"]:focus,
-.form-row input[name*="Rating"]:focus,
-.form-row input[name*="Caps"]:focus,
-.form-row input[name*="jersey"]:focus {
-  box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.2);
-  border-color: #1f5f37;
-}
-
-/* ========================================
-   BUTTON ROW
-   ======================================== */
-
+/* Button Row */
 .button-row {
   display: flex;
   justify-content: flex-end;
-  gap: 16px;
-  margin-top: 35px;
-  padding-top: 25px;
-  border-top: 2px solid #e5e7eb;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
 }
 
-/* ========================================
-   BUTTONS
-   ======================================== */
-
+/* Buttons */
 button {
-  padding: 12px 32px;
-  border-radius: 8px;
+  padding: 10px 24px;
+  border-radius: var(--radius-md);
   border: none;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: var(--font-size-base);
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
+  transition: all var(--transition-base);
+  font-family: var(--font-family);
   outline: none;
 }
 
-/* Back Button */
 button[type="button"] {
-  background: #f3f4f6;
-  color: #374151;
-  border: 2px solid #d1d5db;
+  background: var(--color-bg);
+  color: var(--color-text-secondary);
+  border: 1.5px solid var(--color-border);
 }
 
 button[type="button"]:hover {
-  background: #e5e7eb;
-  border-color: #6b7280;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  background: #e2e8f0;
+  transform: translateY(-1px);
 }
 
-button[type="button"]:active {
-  transform: translateY(0);
-}
-
-/* Submit Button - Professional Football Green */
 button[type="submit"] {
-  background: linear-gradient(135deg, #1f5f37 0%, #167934 100%);
+  background: var(--color-primary);
   color: white;
-  font-weight: 800;
-  border: none;
-  box-shadow: 0 8px 20px rgba(31, 95, 55, 0.3);
-  position: relative;
-  overflow: hidden;
-}
-
-button[type="submit"]::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left 0.5s;
 }
 
 button[type="submit"]:hover {
-  background: linear-gradient(135deg, #167934 0%, #0f4620 100%);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(31, 95, 55, 0.4);
-}
-
-button[type="submit"]:hover::before {
-  left: 100%;
-}
-
-button[type="submit"]:active {
+  background: var(--color-primary-hover);
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(31, 95, 55, 0.3);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
 }
 
-/* ========================================
-   RESPONSIVE DESIGN
-   ======================================== */
-
+/* Responsive */
 @media (max-width: 768px) {
   .create-player-container {
-    margin: 30px 15px;
-    border-radius: 12px;
+    margin: var(--space-md);
   }
-
   .form-content {
-    padding: 30px 25px;
-    margin: 15px;
-    border-radius: 10px;
+    padding: var(--space-lg);
   }
-
   .form-row {
     grid-template-columns: 1fr;
-    gap: 18px;
-    margin-bottom: 25px;
   }
-
-  .section-title {
-    font-size: 20px;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-  }
-
   .button-row {
     flex-direction: column;
-    gap: 12px;
-    margin-top: 25px;
   }
-
   button {
     width: 100%;
-    padding: 12px 20px;
-  }
-
-  label {
-    font-size: 11px;
-  }
-
-  input {
-    padding: 12px 14px;
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .create-player-container {
-    margin: 20px 10px;
-    border-radius: 8px;
-  }
-
-  .form-content {
-    padding: 20px 18px;
-    margin: 10px;
-    border-radius: 8px;
-    border-left: 4px solid #1f5f37;
-  }
-
-  .section-title {
-    font-size: 18px;
-    margin-bottom: 16px;
-    gap: 8px;
-  }
-
-  .section-title::before {
-    font-size: 20px;
-  }
-
-  .form-row {
-    gap: 14px;
-    margin-bottom: 18px;
-  }
-
-  label {
-    font-size: 10px;
-    margin-bottom: 6px;
-  }
-
-  input {
-    padding: 10px 12px;
-    font-size: 13px;
-  }
-
-  button {
-    padding: 10px 16px;
-    font-size: 13px;
   }
 }

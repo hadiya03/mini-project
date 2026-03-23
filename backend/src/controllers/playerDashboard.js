@@ -139,17 +139,25 @@ exports.getPlayerTrainingHistory = async (req, res) => {
     console.log("Fetching training history for:", playerId); // debugging
 
     const result = await pool.query(
-      `SELECT submitted_at AS created_at,
-              rpe,
-              tiredness,
-              sleep,
-              soreness,
-              readiness
-       FROM training_submissions
-       WHERE player_id = $1
-       ORDER BY submitted_at DESC`,
-      [playerId]
-    );
+  `SELECT
+      ts.submitted_at AS created_at,
+      ts.rpe,
+      ts.tiredness,
+      ts.sleep,
+      ts.soreness,
+      pa.readiness
+   FROM training_submissions ts
+   LEFT JOIN LATERAL (
+      SELECT readiness
+      FROM player_assessments
+      WHERE player_id = ts.player_id
+      ORDER BY created_at DESC
+      LIMIT 1
+   ) pa ON true
+   WHERE ts.player_id = $1
+   ORDER BY ts.submitted_at DESC`,
+  [playerId]
+);
 
     console.log("Training history rows:", result.rows);
 

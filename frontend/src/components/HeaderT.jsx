@@ -2,7 +2,7 @@ import React from "react";
 
 const HeaderT = () => {
   return (
-    <header style={{ background: "#26292d", color: "#fff", padding: "15px" }}>
+    <header className="main-header">
       <h1>Trainer Dashboard</h1>
     </header>
   );

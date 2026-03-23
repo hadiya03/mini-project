@@ -42,7 +42,6 @@ import Sidebarr from "./components/Sidebarr.jsx";
 
 import SystemLogs from "./components/SystemLogs.jsx";
 import "./football-theme.css";
-import Chatbot from "./components/Chatbot";
 
 
 const App = () => {
@@ -419,7 +418,6 @@ const App = () => {
           {/* Default Route */}
         <Route path="*" element={<Navigate to="/l" replace />} />
       </Routes>
-      <Chatbot />
     </div>
   );
 };

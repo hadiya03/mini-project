@@ -1,9 +1,8 @@
-/* ============================================
-   PlayerDashboard.css — Scoped styles only
-   Import this ONLY in PlayerDashboard.jsx
-   ============================================ */
+/* ============================================================
+   PLAYER DASHBOARD — Scoped Styles (pd- prefix)
+   ============================================================ */
 
-/* === RESET scoped to player dashboard only === */
+/* Root Reset */
 .pd-root *,
 .pd-root *::before,
 .pd-root *::after {
@@ -12,14 +11,13 @@
   padding: 0;
 }
 
-/* === ROOT WRAPPER === */
 .pd-root {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-  padding: 2rem;
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--color-bg);
+  padding: var(--space-xl);
+  font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;
-  color: #0f172a;
+  color: var(--color-text);
 }
 
 .pd-container {
@@ -30,28 +28,28 @@
   gap: 1.5rem;
 }
 
-/* === CARD === */
+/* Card */
 .pd-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.07), 0 4px 16px rgba(0,0,0,0.04);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
   overflow: hidden;
 }
 
 .pd-card-header {
   padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--color-border);
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1.05rem;
+  font-size: var(--font-size-md);
   font-weight: 700;
-  color: #0f172a;
+  color: var(--color-text);
 }
 
 .pd-card-header svg {
-  color: #2563eb;
+  color: var(--color-primary);
   flex-shrink: 0;
 }
 
@@ -59,7 +57,7 @@
   padding: 1.5rem;
 }
 
-/* === PROFILE CARD === */
+/* Profile */
 .pd-profile {
   display: flex;
   align-items: center;
@@ -71,14 +69,14 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.75rem;
   font-weight: 700;
   color: #fff;
-  border: 3px solid #2563eb;
+  border: 3px solid var(--color-primary);
   flex-shrink: 0;
   position: relative;
   overflow: hidden;
@@ -94,7 +92,7 @@
 .pd-avatar-upload {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,13 +131,13 @@
 .pd-profile-name {
   font-size: 1.8rem;
   font-weight: 800;
-  color: #0f172a;
+  color: var(--color-text);
   line-height: 1.2;
 }
 
 .pd-badge {
-  background: #dcfce7;
-  color: #15803d;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
   padding: 0.2rem 0.75rem;
   border-radius: 999px;
   font-size: 0.8rem;
@@ -150,7 +148,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #64748b;
+  color: var(--color-text-secondary);
   font-size: 0.9rem;
   flex-wrap: wrap;
 }
@@ -162,7 +160,7 @@
 }
 
 .pd-profile-meta .pd-dot {
-  color: #cbd5e1;
+  color: var(--color-border);
 }
 
 .pd-profile-actions {
@@ -171,19 +169,20 @@
   flex-wrap: wrap;
 }
 
-/* === BUTTONS === */
+/* Buttons */
 .pd-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
   padding: 0.55rem 1.1rem;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
   border: none;
-  transition: all 0.15s ease;
+  transition: all var(--transition-fast);
   white-space: nowrap;
+  font-family: var(--font-family);
 }
 
 .pd-btn svg {
@@ -193,23 +192,23 @@
 }
 
 .pd-btn-outline {
-  background: #fff;
-  border: 1px solid #cbd5e1;
-  color: #475569;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
 }
 
 .pd-btn-outline:hover {
-  background: #f8fafc;
-  border-color: #94a3b8;
+  background: var(--color-surface-hover);
+  border-color: var(--color-text-muted);
 }
 
 .pd-btn-primary {
-  background: #2563eb;
+  background: var(--color-primary);
   color: #fff;
 }
 
 .pd-btn-primary:hover {
-  background: #1d4ed8;
+  background: var(--color-primary-hover);
 }
 
 .pd-btn-full {
@@ -219,7 +218,7 @@
   font-size: 1rem;
 }
 
-/* === GRID LAYOUTS === */
+/* Grid Layouts */
 .pd-grid-2 {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -264,7 +263,7 @@
   }
 }
 
-/* === READINESS SCORE === */
+/* Readiness Score */
 .pd-readiness-center {
   display: flex;
   justify-content: center;
@@ -276,7 +275,7 @@
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  border: 8px solid #e2e8f0;
+  border: 8px solid var(--color-primary-light);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -286,43 +285,43 @@
 .pd-circle-value {
   font-size: 3rem;
   font-weight: 800;
-  color: #0f172a;
+  color: var(--color-text);
   line-height: 1;
 }
 
 .pd-circle-pct {
   font-size: 1.4rem;
-  color: #64748b;
+  color: var(--color-text-secondary);
   margin-top: 0.5rem;
 }
 
 .pd-progress-bar {
   width: 100%;
   height: 10px;
-  background: #e2e8f0;
+  background: var(--color-border);
   border-radius: 999px;
   overflow: hidden;
 }
 
 .pd-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  background: linear-gradient(90deg, var(--color-primary), #22c55e);
   border-radius: 999px;
   transition: width 0.5s ease;
 }
 
-/* === TRAINER FEEDBACK === */
+/* Feedback */
 .pd-feedback-empty {
   text-align: center;
   padding: 3rem 1rem;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   font-size: 0.95rem;
 }
 
 .pd-feedback-msg {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  background: var(--color-surface-hover);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   padding: 0.75rem;
   margin-bottom: 0.75rem;
 }
@@ -336,17 +335,17 @@
 .pd-feedback-msg-sender {
   font-weight: 700;
   font-size: 0.85rem;
-  color: #0f172a;
+  color: var(--color-text);
 }
 
 .pd-feedback-msg-time {
   font-size: 0.75rem;
-  color: #94a3b8;
+  color: var(--color-text-muted);
 }
 
 .pd-feedback-msg-text {
   font-size: 0.875rem;
-  color: #475569;
+  color: var(--color-text-secondary);
 }
 
 .pd-feedback-scroll {
@@ -355,27 +354,27 @@
   padding: 1rem;
 }
 
-/* === METRIC CARDS === */
+/* Metric Cards */
 .pd-metric-card {
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
   padding: 1rem;
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  transition: box-shadow 0.2s;
+  transition: box-shadow var(--transition-fast);
 }
 
 .pd-metric-card:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-md);
 }
 
 .pd-metric-icon {
   width: 38px;
   height: 38px;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -391,22 +390,22 @@
 .pd-metric-icon-amber { background: #fffbeb; color: #d97706; }
 .pd-metric-icon-red { background: #fef2f2; color: #dc2626; }
 .pd-metric-icon-indigo { background: #eef2ff; color: #4f46e5; }
-.pd-metric-icon-green {background-color:#fffbeb; color: #166534;}
-.pd-metric-icon-pink { background-color:#cbd5e1;color: #fef2f2;}
+.pd-metric-icon-green { background: var(--color-primary-light); color: var(--color-primary); }
+.pd-metric-icon-pink { background: #cbd5e1; color: #fef2f2; }
 
 .pd-metric-label {
   font-size: 0.8rem;
-  color: #64748b;
+  color: var(--color-text-secondary);
   margin-bottom: 0.15rem;
 }
 
 .pd-metric-value {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--color-text);
 }
 
-/* === FORM === */
+/* Form */
 .pd-form-group {
   display: flex;
   flex-direction: column;
@@ -416,33 +415,33 @@
 .pd-label {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #374151;
+  color: var(--color-text);
 }
 
 .pd-input {
   padding: 0.6rem 0.875rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
   font-size: 0.9rem;
-  background: #f8fafc;
-  color: #0f172a;
+  background: var(--color-surface-hover);
+  color: var(--color-text);
   outline: none;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   width: 100%;
   font-family: inherit;
 }
 
 .pd-input:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-  background: #fff;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
+  background: var(--color-surface);
 }
 
 .pd-input::placeholder {
-  color: #94a3b8;
+  color: var(--color-text-muted);
 }
 
-/* === TABLE === */
+/* Table */
 .pd-table {
   width: 100%;
   border-collapse: collapse;
@@ -453,8 +452,8 @@
   text-align: left;
   padding: 0.75rem 1rem;
   font-weight: 600;
-  color: #475569;
-  border-bottom: 1px solid #e2e8f0;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border);
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -462,8 +461,8 @@
 
 .pd-table td {
   padding: 0.75rem 1rem;
-  color: #374151;
-  border-bottom: 1px solid #f1f5f9;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border-light);
 }
 
 .pd-table tr:last-child td {
@@ -471,20 +470,20 @@
 }
 
 .pd-table tr:hover td {
-  background: #f8fafc;
+  background: var(--color-surface-hover);
 }
 
 .pd-table .pd-td-bold {
   font-weight: 700;
-  color: #0f172a;
+  color: var(--color-text);
 }
 
-/* === ACCORDION === */
+/* Accordion */
 .pd-accordion {
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
 }
 
@@ -499,13 +498,13 @@
   cursor: pointer;
   font-size: 1rem;
   font-weight: 700;
-  color: #0f172a;
-  transition: background 0.15s;
+  color: var(--color-text);
+  transition: background var(--transition-fast);
   font-family: inherit;
 }
 
 .pd-accordion-trigger:hover {
-  background: #f8fafc;
+  background: var(--color-surface-hover);
 }
 
 .pd-accordion-trigger-left {
@@ -515,7 +514,7 @@
 }
 
 .pd-accordion-trigger svg {
-  color: #2563eb;
+  color: var(--color-primary);
   width: 18px;
   height: 18px;
 }
@@ -523,7 +522,7 @@
 .pd-accordion-chevron {
   width: 18px;
   height: 18px;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   transition: transform 0.2s;
   flex-shrink: 0;
 }
@@ -534,7 +533,7 @@
 
 .pd-accordion-content {
   padding: 0 1.5rem 1.25rem;
-  color: #475569;
+  color: var(--color-text-secondary);
   font-size: 0.9rem;
   display: none;
 }
@@ -551,11 +550,11 @@
 }
 
 .pd-accordion-content li strong {
-  color: #0f172a;
+  color: var(--color-text);
   font-weight: 700;
 }
 
-/* === EDIT FORM INPUTS === */
+/* Edit Form */
 .pd-edit-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

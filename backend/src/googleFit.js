@@ -2,16 +2,16 @@ require("dotenv").config(); // Load env vars for local development
 const { google } = require("googleapis");
 
 // NOTE: You must set these in your environment for real OAuth to work:
-// - GOOGLE_FIT_CLIENT_ID
-// - GOOGLE_FIT_CLIENT_SECRET
-const GOOGLE_FIT_REDIRECT_URI =
+const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+GOOGLE_FIT_REDIRECT_URI =
   process.env.GOOGLE_FIT_REDIRECT_URI ||
   "http://localhost:5000/auth/google/callback";
 
 const oauth2Client = new google.auth.OAuth2(
-  process.env.GOOGLE_FIT_CLIENT_ID || "clientid",
-  process.env.GOOGLE_FIT_CLIENT_SECRET || "client-secret-placeholder",
-  GOOGLE_FIT_REDIRECT_URI||"localhost-redirect-placeholder"
+  process.env.GOOGLE_FIT_CLIENT_ID || "",
+  process.env.GOOGLE_FIT_CLIENT_SECRET || "",
+  GOOGLE_FIT_REDIRECT_URI || "http://localhost:5000/auth/google/callback"
 )
 const GOOGLE_FIT_SCOPES = [
   "https://www.googleapis.com/auth/fitness.activity.read",
